@@ -1,0 +1,7 @@
+.itemcompleted {
+  text-decoration: line-through;
+}
+
+.todo-list {
+  margin-top: 10px;
+}
