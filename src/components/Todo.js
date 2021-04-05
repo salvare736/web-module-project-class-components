@@ -3,7 +3,7 @@ import React from 'react';
 const Todo = props => {
 
     return (
-        <div className={`task${props.todo.completed ? 'completed' : ''}`}>
+        <div className={`item${props.item.completed ? 'completed' : ''}`}>
             <p>{props.todo.task}</p>
         </div>
     );
