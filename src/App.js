@@ -7,17 +7,17 @@ import './components/Todo.css';
 const todos = [
   {
     task: 'Walk the dog',
-    id: Date.now()-1,
-    completed: false
-  },
-  {
-    task: 'Buy groceries',
     id: Date.now(),
     completed: false
   },
   {
-    task: 'Clean the house',
+    task: 'Buy groceries',
     id: Date.now()+1,
+    completed: false
+  },
+  {
+    task: 'Clean the house',
+    id: Date.now()+2,
     completed: false
   }
 ];
@@ -33,15 +33,48 @@ class App extends React.Component {
     }
   }
 
+  toggleItem = (id) => {
+    const newTodos = this.state.todos.map(item => {
+      if (item.id === id) {
+        return( {
+          ...item,
+          completed: !item.completed
+        });
+      } else {
+        return item;
+      }
+    });
+
+    this.setState({
+      todos:newTodos
+    });
+  }
+
+  addItem = (itemTask)=> {
+    this.setState({
+      todos: [...this.state.todos, {
+        task: itemTask,
+        id: Date.now(),
+        completed: false
+      }]
+    });
+  }
+
+  clearCompleted = e => {
+    this.setState({
+      todos: this.state.todos.filter(item => (!item.completed))
+    });
+  }
+
   render() {
     return (
       <div className='App'>
         <div className='header'>
           <h1>~TODO TASK TRACKER~</h1>
-          <TodoForm />
+          <TodoForm addItem={this.addItem}/>
         </div>
 
-        <TodoList todos={this.state.todos} />
+        <TodoList clearCompleted={this.clearCompleted} toggleItem={this.toggleItem} todos={this.state.todos} />
       </div>
     );
   }
