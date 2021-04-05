@@ -1,6 +1,6 @@
 import React from 'react';
 
-class TodoForm extends React.component {
+class TodoForm extends React.Component {
     constructor() {
         super();
 

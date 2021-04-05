@@ -4,7 +4,7 @@ const Todo = props => {
 
     return (
         <div className={`item${props.item.completed ? 'completed' : ''}`}>
-            <p>{props.todo.task}</p>
+            <p>{props.item.task}</p>
         </div>
     );
 };
