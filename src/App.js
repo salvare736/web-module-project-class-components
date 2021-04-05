@@ -7,17 +7,17 @@ import './components/Todo.css';
 const todos = [
   {
     task: 'Walk the dog',
-    id: 123,
+    id: Date.now()-1,
     completed: false
   },
   {
     task: 'Buy groceries',
-    id: 135,
+    id: Date.now(),
     completed: false
   },
   {
     task: 'Clean the house',
-    id: 159,
+    id: Date.now()+1,
     completed: false
   }
 ];
